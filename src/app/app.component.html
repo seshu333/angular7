@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+<div>
+  <button (click)="addEmp()">Add Employee</button>
+  <button (click)="listEmp()">List Employees</button>
+</div>
+
+<div *ngIf="addemployee==false" style="margin-top: 50px;">
+<div>
+  <div>
+    <div>Name : <input type="text" name="" [(ngModel)]="emp.name"></div>
+    <div>EmailId : <input type="text" name="" [(ngModel)]="emp.emailid"></div>
+    <div>Phone Number : <input type="text" name="" [(ngModel)]="emp.phno"></div>
+    <div>Salary : <input type="text" name="" [(ngModel)]="emp.sal"></div>
+    <div>
+     <button (click)="addEmployee()">{{editIndex<0?'Save Employee':'Update Employee'}} </button>
+    </div>
+  </div>
+</div>
+</div>
+<div *ngIf="addemployee==true">
+  <table align="center">
+    <tr>
+      <th>Name</th>
+      <th>EmailId</th>
+      <th>Phone Number</th>
+      <th>Salary</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let empuser of empList; let i=index;">
+      <td>{{empuser.name}}</td>
+      <td>{{empuser.emailid}}</td>
+      <td>{{empuser.phno}}</td>
+      <td>{{empuser.sal}}</td>
+      <td><button (click)="editEmployee(i)">Edit</button></td>
+      <td><button (click)="deleteEmployee(i)">Delete</button></td>
+    </tr>
+  </table>
+</div>
+
+
